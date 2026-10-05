@@ -18,7 +18,7 @@ No routing table is needed as the packets are forwarded automatically. This is a
 - [Local LoRa Weather Station](https://github.com/scottlecomte/Local-LoRa-Weather-Station) Sends environmental data (type) and rain gauge (tip bucket) 
 - [Local LoRa Temperature Probe Sensor](https://github.com/scottlecomte/Local-LoRa-Temperature-Probe-Sensor) Used to monitor temperature, sends data in degrees F.
 - [Local LoRa Gate Sensor](https://github.com/scottlecomte/Local-LoRa-Gate-Sensor) A simple reed switch configuration used to monitor open/closed state
-- Moisture sensor repo to come - monitors the presents of moisture
+- Moisture sensor repo to come - monitors the presence of moisture
 
 Each of those repos is its own firmware. This one is only how they fit together.
 
