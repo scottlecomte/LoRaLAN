@@ -15,10 +15,10 @@ No routing table is needed as the packets are forwarded automatically. This is a
 ## Nodes
 
 - [Lora to Ethernet Bridge](https://github.com/scottlecomte/Lora-to-Ethernet-Bridge) receives the packets. It is RadioHead server address 2, and it forwards them to Node-RED over Ethernet.
-- [Local LoRa Weather Station](https://github.com/scottlecomte/Local-LoRa-Weather-Station)
-- [Local LoRa Temperature Probe Sensor](https://github.com/scottlecomte/Local-LoRa-Temperature-Probe-Sensor)
-- [Local LoRa Gate Sensor](https://github.com/scottlecomte/Local-LoRa-Gate-Sensor)
-- Moisture sensor repo to come
+- [Local LoRa Weather Station](https://github.com/scottlecomte/Local-LoRa-Weather-Station) Sends environmental data (type) and rain gauge (tip bucket) 
+- [Local LoRa Temperature Probe Sensor](https://github.com/scottlecomte/Local-LoRa-Temperature-Probe-Sensor) Used to monitor temperature, sends data in degrees F.
+- [Local LoRa Gate Sensor](https://github.com/scottlecomte/Local-LoRa-Gate-Sensor) A simple reed switch configuration used to monitor open/closed state
+- Moisture sensor repo to come - monitors the presents of moisture
 
 Each of those repos is its own firmware. This one is only how they fit together.
 
