@@ -1,16 +1,16 @@
 # LoRaLAN
 
-The point of this project is to keep the sensors local and off the cloud. A gate, a coolant temperature, and the weather do not need an account, a subscription, or a path through someone else's server. If the internet is down, the radios and the house network still work.
+The point of this project is to keep LoRa sensors local and off the cloud. Multiple LoRa based sensors that are built on a Raspberry Pi Pico platform using Micropython. Sensors include: A gate sensor, temperature probe, a weather station and moisture sensor. One base station (Bridge) that forwards all the sensor packets to the local network. There is no need for a cloud based account, a subscription, or a path through someone else's server. If the internet is down, the sensors still work as long as local network stays up.
 
-LoRaWAN was the wrong shape for that. These nodes send RadioHead-style packets on 915 MHz to one bridge. The bridge is the only node that answers with an ACK. From there the packet goes over Ethernet into Node-RED on the LAN.
+The sensor nodes send RadioHead-style packets on 915 MHz(US) to one bridge and can be configured for other countries required frequencies. The bridge is the only node that answers with an ACK. From there the packet goes over Ethernet via web socket to Node-RED or other data capturing location. 
 
 ## How a packet moves
 
-A sensor sends when something changes, then a slow heartbeat so a quiet node is not a dead one. It does not sit on a fast timer.
+A sensor sends packets when readings change, then a slow heartbeat is used for feedback. So, a quiet node is not a dead sensor. It does not flood the LoRa spectrum with packets and allows ample bandwidth.
 
-Another node can rebroadcast a packet it did not send, once, up to two hops. It keeps the original sender and packet id. The bridge keeps the first copy and drops the repeats. The ACK comes only from the bridge (address 2). One of those ACKs can be repeated so a node farther out still hears it.
+Another node can rebroadcast a packet received by an adjacent node one time up to two hops. It keeps the original sender and packet id. The bridge keeps the first copy and drops the repeats. The ACK comes only from the bridge (address 2). One of those ACKs can be repeated so a node farther out still hears it. This makes the LoRa sensor network robust enough that distant nodes can still be heard. 
 
-This is a flood, not a routed mesh. There is no route table.
+No routing table is needed as the packets are forwarded automatically. This is a flood, not a routed mesh.
 
 ## Nodes
 
@@ -18,6 +18,7 @@ This is a flood, not a routed mesh. There is no route table.
 - [Local LoRa Weather Station](https://github.com/scottlecomte/Local-LoRa-Weather-Station)
 - [Local LoRa Temperature Probe Sensor](https://github.com/scottlecomte/Local-LoRa-Temperature-Probe-Sensor)
 - [Local LoRa Gate Sensor](https://github.com/scottlecomte/Local-LoRa-Gate-Sensor)
+- Moisture sensor repo to come
 
 Each of those repos is its own firmware. This one is only how they fit together.
 
